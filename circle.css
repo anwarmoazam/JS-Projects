@@ -1,0 +1,9 @@
+#circle,.circle{
+    border: 2px;
+    border-radius: 50%;
+    position: absolute;
+}
+
+#circle{
+    z-index: 2;
+}
