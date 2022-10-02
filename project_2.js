@@ -19,9 +19,13 @@ function createBox() {
     }
     for (let i = 0; i < age; i++) {
         let box = document.createElement('div');
-        box.setAttribute("style", "display:inline-block;width:50px;height:50px;background-color:green;margin:5px");
+        box.setAttribute("style", `display:inline-block;width:50px;height:50px;background-color:rgb(${getRandomNumber(0,255)},${getRandomNumber(0,255)},${getRandomNumber(0,255)});margin:5px`);
         outputDiv.appendChild(box);
     }
     document.body.appendChild(outputDiv);
     console.log(age);   
+}
+
+function getRandomNumber(min,max){
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }
