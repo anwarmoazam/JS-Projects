@@ -46,13 +46,13 @@ function addMembers() {
 }
 
 function getLuckyName() {
-    document.getElementById('end').disabled = true;
+    // document.getElementById('end').disabled = true;
     document.getElementById('clear').disabled = false;
     let output = "";
     let min = 0;
     let max = JSON.parse(localStorage.nameList).length-1;
     let random = Math.floor(Math.random() * (max - min + 1)) + min;
-    alert(`The Lucky Winner of Tea is : ${JSON.parse(localStorage.nameList)[random]}`);
+    alert(`Name Lucky Winner is : ${JSON.parse(localStorage.nameList)[random]}`);
     output = document.createElement('div');
     output.innerText = `Lucky Winner : ${JSON.parse(localStorage.nameList)[random]}`
     containerDOM[0].appendChild(output);
