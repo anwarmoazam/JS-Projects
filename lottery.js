@@ -23,18 +23,12 @@ function clearList(){
     document.getElementsByTagName('tbody')[0].innerHTML = "";
 }
 
-function validateName(name) {
-    if ((name !== "") && (name !== null)) {
-        return true;
-    }
-}
-
 showMembers();
 
 function addMembers() {
     let name = prompt(`Please Enter Member's Name : `);
     if(name == null || name == ""){
-        alert("Cancelled");
+        alert("Invalid Name");
     }else{
         let tmp = JSON.parse(localStorage.nameList);
         tmp.push(name);
@@ -46,16 +40,16 @@ function addMembers() {
 }
 
 function getLuckyName() {
-    // document.getElementById('end').disabled = true;
-    document.getElementById('clear').disabled = false;
-    let output = "";
+    // document.getElementById('clear').disabled = false;
+    // let output = document.createElement('div');
+    // output.setAttribute('id','output');
     let min = 0;
     let max = JSON.parse(localStorage.nameList).length-1;
     let random = Math.floor(Math.random() * (max - min + 1)) + min;
     alert(`Name Lucky Winner is : ${JSON.parse(localStorage.nameList)[random]}`);
-    output = document.createElement('div');
-    output.innerText = `Lucky Winner : ${JSON.parse(localStorage.nameList)[random]}`
-    containerDOM[0].appendChild(output);
+    // output = document.createElement('div');
+    document.getElementById('result').innerText = `Lucky Winner : ${JSON.parse(localStorage.nameList)[random]}`
+    // containerDOM[0].appendChild(output);
 }
 
 function showMembers(){
