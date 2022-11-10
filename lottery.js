@@ -62,13 +62,3 @@ function showMembers(){
     }
     tableDom.appendChild(table);
 }
-
-function sortTable(table,column,asc =true){
-
-}
-
-let tBody = document.querySelectorAll('tbody');
-let rows = tBody[0].querySelectorAll('tr')
-for(let i=0; i<rows.length; i++){
-    console.log(rows[i].innerHTML);
-}
