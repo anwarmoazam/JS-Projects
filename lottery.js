@@ -72,4 +72,3 @@ let rows = tBody[0].querySelectorAll('tr')
 for(let i=0; i<rows.length; i++){
     console.log(rows[i].innerHTML);
 }
-console.log('end')
