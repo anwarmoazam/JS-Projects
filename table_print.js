@@ -25,7 +25,7 @@ function printTable(event){
     for(let i=1; i<=10; i++){
         setTimeout(function(){
             result.innerHTML += `${value} x ${i} = ${value*i}<br>`
-        },i*200)
+        },i*2000)
     }
 }
 

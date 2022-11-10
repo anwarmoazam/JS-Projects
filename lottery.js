@@ -36,6 +36,7 @@ function addMembers() {
         let tmp = JSON.parse(localStorage.nameList);
         tmp.push(name);
         localStorage.nameList = JSON.stringify(tmp);
+        // document.getElementsByClassName('.container');
         document.getElementsByTagName('tbody')[0].innerHTML = "";
         showMembers();
         document.getElementById('end').disabled = false
@@ -43,9 +44,6 @@ function addMembers() {
 }
 
 function getLuckyName() {
-    // document.getElementById('clear').disabled = false;
-    // let output = document.createElement('div');
-    // output.setAttribute('id','output');
     let min = 0;
     let max = JSON.parse(localStorage.nameList).length-1;
     let random = Math.floor(Math.random() * (max - min + 1)) + min;
@@ -64,3 +62,14 @@ function showMembers(){
     }
     tableDom.appendChild(table);
 }
+
+function sortTable(table,column,asc =true){
+
+}
+
+let tBody = document.querySelectorAll('tbody');
+let rows = tBody[0].querySelectorAll('tr')
+for(let i=0; i<rows.length; i++){
+    console.log(rows[i].innerHTML);
+}
+console.log('end')

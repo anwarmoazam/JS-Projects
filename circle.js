@@ -14,7 +14,11 @@ class Log {
 
 const logger = new Log();
 logger.log = 'Starting Application';
+<<<<<<< HEAD
 const limit = 5;
+=======
+const limit = 10;
+>>>>>>> 33b7bd3586c407a1f2639666a99ca268e23e3102
 logger.log = `Setting Limit to ${limit}`;
 
 let circleDOM = document.querySelector('#circle');
