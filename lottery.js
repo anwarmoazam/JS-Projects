@@ -9,6 +9,8 @@ if(!localStorage.nameList){
 if(JSON.parse(localStorage.nameList).length > 0){
     document.getElementById('clear').disabled = false
     document.getElementById('end').disabled = false
+}else{
+    document.getElementById('clear').disabled = true
 }
 
 document.getElementById('start').addEventListener('click', addMembers)
@@ -26,6 +28,7 @@ function clearList(){
 showMembers();
 
 function addMembers() {
+    document.getElementById('clear').disabled = false
     let name = prompt(`Please Enter Member's Name : `);
     if(name == null || name == ""){
         alert("Invalid Name");
