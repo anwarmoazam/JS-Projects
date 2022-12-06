@@ -4,6 +4,7 @@ let btn = document.querySelector('button');
 let cityDOM = document.querySelector("input[type='text']");
 let dobDOM = document.querySelector("input[type='date']");
 let output = document.querySelector('.output');
+const tempStore = [];
 
 cityDOM.addEventListener('change', validateForm);
 dobDOM.addEventListener('change', validateForm);
@@ -24,24 +25,40 @@ function printBoxes() {
     }).then(data => {
         // check data available
         console.log(data);
-        let { temp: maxTemp, temp: minTemp } = data.days[0];
+        // let { temp: maxTemp, temp: minTemp } = data.days[0];
         for (let details of data.days) {
+            tempStore.push(details.temp)
             let boxes = document.createElement('div');
             let { datetime, temp } = details;
-            let [r,g] = ['red','green'];
-            if (temp > maxTemp) {
-                maxTemp = temp;
-            }
-            if (temp < minTemp) {
-                minTemp = temp;
-            }
+
+
+            // if (temp > maxTemp) {
+            //     maxTemp = temp;
+            // }
+            // if (temp < minTemp) {
+            //     minTemp = temp;
+            // }
 
             // boxes.setAttribute('style', `background-color:${r};display:inline-block;width:50px;height:50px;margin:5px`);
             boxes.setAttribute('title', `Temprature : ${temp}, Date : ${datetime}`)
 
             output.appendChild(boxes);
         }
-        console.log(maxTemp, minTemp);
+        const maxTemp = Math.max(...tempStore);
+        const minTemp = Math.min(...tempStore);
+        console.log('Max Temp : ',maxTemp);
+        console.log('Min Temp : ',minTemp);
+        console.log('Temp array : ',tempStore);
+        // tempStore.forEach(function(value){
+        //     const color = '#';
+        //     if(value === maxTemp){
+        //         console.log('Green');
+        //     } else if(value === minTemp){
+        //         console.log('Red');
+        //     } else{
+        //         console.log('Blue');
+        //     }
+        // })
         for(let box of output.children){
             // if(box.title.substr(13,4)==maxTemp){
             //     box.setAttribute('style', `background-color:red;display:inline-block;width:50px;height:50px;margin:5px`);
@@ -83,3 +100,4 @@ function formatDate(inputDate) {
     let [year, month, date] = [inputDate.getFullYear(), ("0" + (inputDate.getMonth() + 1)).slice(-2), ("0" + inputDate.getDate()).slice(-2)];
     return `${year}-${month}-${date}`;
 }
+
