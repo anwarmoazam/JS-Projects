@@ -7,6 +7,8 @@ let addToDoBtn = document.getElementById('addToDo');
 const category = ["Personal","Work","Lecture","Other"];
 
 const toDoList = [];
+const dueToDoList = [];
+const doneToDoList = [];
 
 (function renderCategory(){
     for(let i=0; i<category.length; i++){
@@ -38,3 +40,4 @@ function resetToDoForm(){
     taskDetail.value = "";
     taskDate.value = "";
 }
+
