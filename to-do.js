@@ -4,22 +4,18 @@ let taskDetail = document.getElementById('task-detail');
 let taskDate = document.getElementById('task-date');
 let addToDoBtn = document.getElementById('addToDo');
 
-
-
-
 const toDoList = {
-    // category: ["Personal","Work","Lecture","Other"];
     personal : [
         {
             id : 1,
             detail : 'Shopping',
-            date : new Date(),
+            date : JSON.stringify(new Date()),
             done : false
         },
         {
             id : 2,
             detail : 'Watch Movie',
-            date : new Date(),
+            date : JSON.stringify(new Date()),
             done : false
         }
     ],
@@ -27,13 +23,13 @@ const toDoList = {
         {
             id : 1,
             detail : 'Make Report',
-            date : new Date(),
+            date : JSON.stringify(new Date()),
             done : false
         },
         {
             id : 2,
             detail : 'Attend VC',
-            date : new Date(),
+            date : JSON.stringify(new Date()),
             done : false
         }
     ],
@@ -41,23 +37,17 @@ const toDoList = {
         {
             id : 1,
             detail : 'Comlpete Course',
-            date : new Date(),
+            date : JSON.stringify(new Date()),
             done : false
         },
         {
             id : 2,
             detail : 'Code',
-            date : new Date(),
+            date : JSON.stringify(new Date()),
             done : false
         }
     ]
 };
-
-
-
-// const toDoList = [];
-// const dueToDoList = [];
-// const doneToDoList = [];
 
 (function renderCategory(){
     const category = Object.keys(toDoList);
@@ -79,7 +69,7 @@ addToDoBtn.addEventListener('click',function(e){
             if(categoryDOM.value === toDoCategory){
                 toDo.id = toDoList[toDoCategory].length+1;
                 toDo.detail = taskDetail.value;
-                toDo.toDoDate = new Date(taskDate.value);
+                toDo.date = JSON.stringify(new Date(taskDate.value));
                 toDo.done = false;
                 toDoList[toDoCategory].push(toDo);
             }
