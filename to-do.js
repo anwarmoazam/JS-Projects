@@ -1,3 +1,9 @@
+let categoryDOM = document.getElementById('task-category');
+let taskDetail = document.getElementById('task-detail');
+let taskDate = document.getElementById('task-date');
+let addToDo = document.getElementById("modal-open");
+let saveToDoBtn = document.getElementById('saveToDo');
+
 const openModalButtons = document.querySelectorAll('[data-modal-target]');
 const closeModalButtons = document.querySelectorAll('[data-close-button]');
 const overlay = document.getElementById('overlay');
@@ -29,31 +35,23 @@ function closeModal(modal){
 }
 
 
-let categoryDOM = document.getElementById('task-category');
-let taskDetail = document.getElementById('task-detail');
-let taskDate = document.getElementById('task-date');
-let addToDo = document.getElementById("modal-open");
-let saveToDoBtn = document.getElementById('saveToDo');
 
-let toDoList = {
-    personal : [
-    ],
-    work : [
-    ],
-    study : [
-    ]
-};
+let toDoList = {};
+let defaultToDoList = {personal:[],work:[],study:[]};
 
 (function renderCategory(){
-    if(!localStorage['toDoList']){
-        localStorage.setItem('toDoList',JSON.stringify(toDoList));
+    if(!localStorage.getItem(['toDoList'])){
+        localStorage.setItem('toDoList',JSON.stringify(defaultToDoList));
+        toDoList = {...defaultToDoList};
     } else{
-        const category = Object.keys(JSON.parse(localStorage.getItem('toDoList')));
-        for(let i=0; i<category.length; i++){
-            let option = document.createElement('option');
-            option.innerText = category[i];
-            categoryDOM.appendChild(option);
-        }
+        toDoList = JSON.parse(localStorage.getItem('toDoList'));
+    }
+    console.log(toDoList);
+    const category = Object.keys(toDoList);
+    for(let i=0; i<category.length; i++){
+        let option = document.createElement('option');
+        option.innerText = category[i];
+        categoryDOM.appendChild(option);
     }
 })();
 
@@ -129,7 +127,7 @@ function resetToDoForm(){
 // for Inbox to-do
 function filterToDo(){
     for (const key in JSON.parse(localStorage.getItem('toDoList'))) {
-        console.log(JSON.parse(localStorage.getItem('toDoList'))[key]);
+        // console.log(JSON.parse(localStorage.getItem('toDoList'))[key]);
     }
 }
 
