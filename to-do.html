@@ -75,15 +75,15 @@
 
   <container class="left-side">
     <div class="add-task">
-      <button id="modal-open">+</button>
+      <button data-modal-target="#add-modal" id="modal-open">+</button>
     </div>
     <div id="add-modal" class="modal">
       <div id="modal-content">
         <div id="modal-header">
-          <span class="close-modal">&times;</span>
+          <h3>Create to-do task</h3>
+          <button data-close-button class="close-modal">&times;</button>
         </div>
         <div id="modal-body">
-          <h3>Create to-do task</h3>
           <form>
             <div class="form-group">
               <label for="task-category">Choose To-do Category : </label>
@@ -102,6 +102,7 @@
         </div>
       </div>
     </div>
+    <div id="overlay"></div>
   </container>
   <script src="./to-do.js"></script>
 </body>
