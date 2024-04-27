@@ -14,7 +14,7 @@ class Log {
 
 const logger = new Log();
 logger.log = 'Starting Application';
-const limit = 10;
+const limit = 20;
 logger.log = `Setting Limit to ${limit}`;
 
 let circleDOM = document.querySelector('#circle');
@@ -76,5 +76,5 @@ function updateCircleStyle(dom,{clientX,clientY}={}){
 
 function updateState(){
     logger.log = `Updating State`;
-    return { size: getRandomNumber(20, 100), color: `rgb(${getRandomNumber(0, 255)},${getRandomNumber(0, 255)},${getRandomNumber(0, 255)})` };
+    return { size: getRandomNumber(50, 200), color: `rgb(${getRandomNumber(0, 255)},${getRandomNumber(0, 255)},${getRandomNumber(0, 255)})` };
 }
